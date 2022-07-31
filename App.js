@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {PermissionsAndroid, Platform, Text, View} from 'react-native';
+import Contacts from 'react-native-contacts';
 
 const App = () => {
   const [myContacts, setMyContacts] = useState([]);
@@ -26,6 +27,20 @@ const App = () => {
         return true;
       } else {
         return false;
+      }
+    }
+  };
+
+  const getContacts = async () => {
+    const resultPermission = requestContactPermission();
+
+    if (resultPermission) {
+      try {
+        const contractList = await Contacts.getAll();
+
+        setMyContacts(contractList);
+      } catch (err) {
+        console.log('Contacts Error ===> ', err);
       }
     }
   };
