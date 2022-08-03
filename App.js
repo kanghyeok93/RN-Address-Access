@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {PermissionsAndroid, Platform, Text, View} from 'react-native';
 import Contacts from 'react-native-contacts';
 
 const App = () => {
   const [myContacts, setMyContacts] = useState([]);
+
+  useEffect(() => {}, []);
 
   const requestContactPermission = async () => {
     if (Platform.OS === 'ios') {
@@ -47,7 +49,7 @@ const App = () => {
 
   return (
     <View>
-      <Text>App</Text>
+      <Text>React Native Address Access</Text>
     </View>
   );
 };
