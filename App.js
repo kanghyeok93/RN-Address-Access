@@ -5,9 +5,9 @@ import Contacts from 'react-native-contacts';
 const App = () => {
   const [myContacts, setMyContacts] = useState([]);
 
-  useEffect(() => {
-    getContacts();
-  }, []);
+  // useEffect(() => {
+  //   getContacts();
+  // }, []);
 
   const requestContactPermission = async () => {
     if (Platform.OS === 'ios') {
@@ -49,7 +49,8 @@ const App = () => {
     }
   };
 
-  console.log('myContacts ===> ', myContacts);
+  console.log('myContacts ===> ', JSON.stringify(myContacts));
+
   return (
     <View>
       <Text>React Native Address Access</Text>
